@@ -12,6 +12,9 @@ screen.listen()
 #Player Object
 player = Player()
 
+#car manager object
+car = CarManager()
+
 #movement of Player
 screen.onkeypress(player.move_forward,"Up")
 
