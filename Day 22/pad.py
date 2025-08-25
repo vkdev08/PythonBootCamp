@@ -26,5 +26,3 @@ class Paddle(Turtle):
             self.sety(LOWERBOUND_PLACING)
         elif self.ycor() >= UPPERBOUND_Y:
             self.sety(UPPERBOUND_PLACING)
-    def update_score(self):
-        self.score += 1

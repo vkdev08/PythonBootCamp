@@ -1,6 +1,7 @@
 from turtle import Screen
 from pad import Paddle
 from ball import Ball
+from scoreboard import ScoreBoard
 import time
 #Constants
 SCREEN_WIDTH = 800
@@ -20,13 +21,16 @@ screen.listen() #for listening to keystrokes
 player1 = Paddle(START_POSITION_1)
 player2 = Paddle(START_POSITION_2)
 
+#scoreboard
+scoreboard = ScoreBoard()
+
 #ball
 ball = Ball()
 
 game_is_on = True
 while game_is_on:
     screen.update()
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.onkeypress(player1.go_up,"w")
     screen.onkeypress(player1.go_down,"s")
     screen.onkeypress(player2.go_up,"Up")
@@ -37,11 +41,13 @@ while game_is_on:
     ball.bounce()
     ball.check_collision(player1)
     ball.check_collision(player2)
+    #Score for R paddle
     if ball.xcor() > 380:
-        player1.update_score()
         ball.reset_position()
+        scoreboard.l_point()
+    #Score for L paddle
     if ball.xcor() < -380:
-        player2.update_score()
         ball.reset_position()
+        scoreboard.r_point()
 
 screen.exitonclick() # exit on x click
