@@ -36,4 +36,5 @@ while game_on:
     if (snake.head.xcor() > 290 or snake.head.xcor() < -290 or
             snake.head.ycor() > 290 or snake.head.ycor() < -290):
             score.reset()
+            snake.reset()
 screen.exitonclick()
