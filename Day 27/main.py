@@ -1,7 +1,6 @@
 # import tkinter
 from tkinter import *
 
-from numpy.ma.core import shape
 
 window = Tk()
 window.title("My Program")
